@@ -139,6 +139,3 @@ Fill the parameters as follows:
   <img src="https://github.com/rfuego/construction_waste/assets/59581171/f3cdead5-5018-4860-8cae-b2b857538f3b" alt="banner2" border="0" /></a>
 </div>
 
-## Скринкаст
-
-
