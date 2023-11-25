@@ -1,66 +1,52 @@
-# Stable Diffusion Application using React with FastAPI
+# Модель  для автоматического распознавания видов отходов строительства и сноса с использованием React with Fast API
 
-Author: [Laura Uzcategui](https://github.com/laurauzcategui)
+## 1. О чем этот проект?
 
-Hello, I would like to share with you this small project that involves creating an Stable Diffusion App with React and FastAPI :grin:. 
+Команда Fuego представляет модель и интерфейс для автоматического распознавания видов отходов строительства и сноса. В качестве решения использована модель YOLOv8, обученная на датасете, собранном в сервисе Roboflow, и дополнительно дообученная на данных, которые получены с камер видеонаблюдения.
 
+Разработанное решение позволяет классифицировать отходы строительного мусора и сноса в кузове спецтехники, и предотвратить подмену заявленного типа, который указан при запуске машины в рейс.
 
-Let's dive in by introducing what is the project about and why I have done it. 
+## 2. Почему он необходим?
 
-## 1. What is this project about? 
+В настоящее время для Департамента, как и для города в целом, одной из актуальных проблем обращения с отходами строительства является их подмена и несанкционированный сброс в непредназначенных для этого местах недобросовестными перевозчиками. Определение вида отходов в кузове самосвалов с помощью анализа видеопотока с камер видеонаблюдения и других объективных средств контроля позволит обеспечить своевременное выявление вида перевозимых отходов строительства и значительно сократить случаи подлогов, оплаты некорректных перевозок и нелегальных сбросов отходов в городе. 
 
-On this project you can checkout how you can build an basic React Application using FastAPI as backend to be able to generate images with Stable Diffusion using the Diffusers library from Hugging Face.
+Необходимо реализовать программный модуль на основе искусственного интеллекта, который будет в состоянии проводить анализ содержимого кузова самосвала, перевозящего отходы строительства и сноса, и автоматически определять какой тип отходов он перевозит.
 
-## 2. Why I did built it?
+## 3. Концепт
 
-For the past couple of months I've been hearing a lot about Stable Diffusion but I haven't had the time to explore it myself, then I saw an opportunity to get to know it but also do a refresh on my frontend skills which were a bit out-of-date by building a React App. 
+Прежде чем углубиться в проект, я дам вам обзор основных концепций и технологий, которые были использованы, а также ссылки на ресурсы, где вы можете узнать об этом больше.
 
-Additionally, I wanted to learn more about FastAPI and this project is built on top of the webinar provided by the author of the library [Sebastian Ramirez](https://github.com/tiangolo). 
+### 3.1 Стэк технологий
 
-## 3. Concepts 
+- **YOLOv8**
+- **Pytorch**
+- **React**
+- **OpenCV**
+- **Python**
+- **FastAPI**
+### 3.2 React как "интерфейсный" интерфейс 
 
-Before diving into the project, I'll give you an overview of the main concepts and technologies that have been used, and pointers to resources where you can learn more about it. 
+Возможно, вы уже слышали о React, поэтому можете пропустить этот раздел. 
 
-### 3.1. What is Stable Diffusion?
+[React](https://reactjs.org/) - это библиотека JavaScript для создания пользовательского интерфейса. Она была создана Facebook (она же Meta) примерно в 2013 году. 
 
-[Stable Diffusion](https://stablediffusionweb.com/) is an AI technique comprised of a set of components to perform Image Generation from Text. What make it so great is that is available to everyone compared to other models such as Dall-e. 
+Насколько я смог узнать во время работы над этим проектом, React работает декларативно, и одна из особенностей, которая делает его классным, заключается в том, что вы можете удалять компоненты, которые имеют свое собственное состояние, и позже могут быть повторно использованы в приложении, которое вы создаете. 
 
-In a short summary about Stable Diffusion, what happens is as follows: 
-
-- You write a text that will be your prompt to generate the image you wish for. 
-- This text is passed to the first component of the model a Text understander or Encoder, which generates token embedding vectors. 
-- Then this representation is received by a [UNet](https://en.wikipedia.org/wiki/U-Net) along with a Tensor made up of noise and after a series of steps it will generate a Processed image tensor array. 
-- The processed image tensor array is received then by an Image Decoder (Autoencoder decoder) that will generate the final image. 
-
-#### 3.1.1 Resources 
-
-- [Paper](https://openaccess.thecvf.com/content/CVPR2022/papers/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.pdf) by Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B. (2022). High-resolution image synthesis with latent diffusion models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 10684-10695)
-- [The Illustrated Stable Diffusion by Jay Alammar](https://jalammar.github.io/illustrated-stable-diffusion/)
-- [How AI Image Generators Work (Stable Diffusion / Dall-E) - Youtube Video by Computerphile](https://youtu.be/1CIpzeNxIhU)
-
-### 3.2 React as Front-end 
-
-Perhaps you have heard already about React, so you can skip this section, if not as a short summary about React. 
-
-[React](https://reactjs.org/) is a JavaScript library for building UI. It was created by Facebook (aka Meta) around 2013. 
-
-As far as I could learn while working on this project, React works in declarative way, and one of the things that make it cool is that you can delcare components that has their own state and later on can be re-used across the application you are building. 
-
-Coming from a purely backend experience I can say it wasn't super difficult to get and incorporate it to what I wanted to achieve which was to build a simple UI that will allow me to write text and wait for the backend to generate an image. 
+Исходя из чисто серверного опыта, я могу сказать, что было не так уж сложно получить и включить его в то, чего я хотел достичь, а именно создать простой пользовательский интерфейс, который позволит мне писать текст и ждать, пока сервер сгенерирует изображение.
 
 #### 3.2.1 Resources
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 
 ### 3.3 FastAPI as backend
 
-In here, things become more interesting to me when backend comes in and I discovered all you can do working with FastAPI. 
+Здесь становится интереснее, когда появляется серверная часть, и я обнаружил все, что вы можете делать, работая с FastAPI. 
 
-As their website state: 
-> FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
+Как указано на их веб-сайте: 
+> > Fast API - это современный, быстрый (высокопроизводительный) веб-фреймворк для создания API с Python 3.7+ на основе стандартных подсказок типа Python.
 
-What I like from FastAPI is the ability to create API's quickly without too much hassle. I loved the fact I could define the routes and immediately check them out by looking at the API docs provided by Swaggeer. 
+Что мне нравится в Fast API, так это возможность быстро создавать API без особых хлопот. Мне понравился тот факт, что я мог определять маршруты и сразу же проверять их, просматривая документы API, предоставленные Swagger. 
 
-Additionally to this, you could define your data model as a Class by using pydantic inheriting from BaseModel. 
+В дополнение к этому, вы могли бы определить свою модель данных как класс, используя педантичное наследование от базовой модели.
 
 #### 3.3.1 Resources
 - [FastAPI Docs](https://fastapi.tiangolo.com/)
