@@ -131,26 +131,10 @@ Fill the parameters as follows:
 
 - Видеопотоки с камер со стороны frontend идут в React
 
-- Seed: a number indicating the seed so that your output will be deterministic. 
-- Guidance scale: it's a float that basically try to enforce that the generation of the image better match the prompt. 
+- React обрабатывает данные и подает 
+- Данные выводятся на интерсейс сервиса
 
-    > Side note: if you are curious about this parameter, you can do a deep dive by reading the paper [Classifier-free Diffusion Guidance](https://arxiv.org/pdf/2207.12598.pdf)
-- Number of Inference Steps: It's a number usually between 50 and 100. This number indicates de amount of denoising steps. Keep in mind the higher the number the more time the inference ( image generation ) will take. 
 
-You should be able to see your frontend like this one below: 
+## Скринкаст
 
-<p align="center">
-<img src="./assets/demo.png" alt="Demo example" width=700 height=400 />
-</p>
 
-## Resources I've used to build the project
-
-- Webinar: [FastAPI for Machine Learning: Live coding an ML web application](https://www.youtube.com/watch?v=_BZGtifh_gw)
-- FastAPI and ReactJS, a set of videos by [Rithmic - Youtube Channel](https://youtube.com/playlist?list=PLhH3UpV2flrwfJ2aSwn8MkCKz9VzO-1P4)
-- [Stable Diffusion with 🧨 Diffusers by HuggingFace](https://huggingface.co/blog/stable_diffusion)
-
-## ToDo
-
-- Add endpoint that shows a grid of images instead of one
-- Update the service backend with a new function to return multiple images. 
-- Improve the UI by customizing Bulma with a different style. 
