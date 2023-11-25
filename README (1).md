@@ -125,15 +125,20 @@ npm install
 npm start
 ```
 
+
+
 ## Как работает алгоритм?
 
 Fill the parameters as follows:
 
-- Видеопотоки с камер со стороны frontend идут в React
+- Нейросеть в режиме реального времени идентифицирует мусоровозы по их контурам и производит предобработку изображений с комплексов фотовидеофиксации
 
 - React обрабатывает данные и подает 
 - Данные выводятся на интерсейс сервиса
-
+  
+<div align="center">
+  <img src="https://github.com/rfuego/construction_waste/assets/59581171/f3cdead5-5018-4860-8cae-b2b857538f3b" alt="banner2" border="0" /></a>
+</div>
 
 ## Скринкаст
 
