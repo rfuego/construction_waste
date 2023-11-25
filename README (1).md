@@ -82,51 +82,6 @@
         └── index.js
 ```
 
-## Установите и запустите его 
-
-Вот шаги, чтобы увидеть, как он работает.
-
-### From your backend folder: 
-
-1. You need a HugginFace token. Checkout how to create one [here](https://huggingface.co/docs/hub/security-tokens#how-to-manage-user-access-tokens)
-2. Once you have your token created it follow the next steps
-
-```
-cd backend 
-touch .env 
-```
-
-3. Open the .env file and add your token there like this: 
-
-```
-HF_TOKEN=MY_FANCY_TOKEN
-```
-
-**WARNING**: Make sure you never commit your keys or tokens file :) Add this file to your .gitignore
-
-4. Create your environment and activate your environment
-```
-python -m venv venv 
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-5. Startup your backend 
-
-```
-uvicorn main:app --port 8885
-```
-
-### From your frontend folder
-
-```
-cd frontend
-npm install 
-npm start
-```
-
-
-
 ## Как работает алгоритм?
 
 Fill the parameters as follows:
