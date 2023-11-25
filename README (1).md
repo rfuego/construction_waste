@@ -82,9 +82,9 @@
         └── index.js
 ```
 
-## Setup and run it :) 
+## Установите и запустите его 
 
-These are the steps to see it running :) 
+Вот шаги, чтобы увидеть, как он работает.
 
 ### From your backend folder: 
 
@@ -125,13 +125,12 @@ npm install
 npm start
 ```
 
-## How to Generate an Image? 
+## Как работает алгоритм?
 
 Fill the parameters as follows:
 
-- Prompt: Text to express the wish for your image. 
+- Видеопотоки с камер со стороны frontend идут в React
 
-    `Example: A red racing car winning the formula-1` 
 - Seed: a number indicating the seed so that your output will be deterministic. 
 - Guidance scale: it's a float that basically try to enforce that the generation of the image better match the prompt. 
 
